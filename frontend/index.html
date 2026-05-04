@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MovePro DMV Movers | Local Moving & Labor Help</title>
+  <meta name="description" content="Professional moving, packing, labor-only loading, unloading, and junk removal services in Maryland, DC, and Northern Virginia." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="#top"><span class="brand-icon">MP</span> MovePro DMV</a>
+      <button class="menu-button" id="menuButton" aria-label="Open navigation">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#booking">Book</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Maryland • DC • Northern Virginia</p>
+          <h1>Reliable movers for apartments, homes, offices, and last-minute moves.</h1>
+          <p class="hero-text">Book labor-only help or full local moving support with upfront estimates, professional movers, and clean communication from start to finish.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#booking">Get a Quote</a>
+            <a class="btn secondary" href="tel:2405550199">Call 240-555-0199</a>
+          </div>
+          <div class="trust-row">
+            <span>Licensed-ready workflow</span>
+            <span>Transparent pricing</span>
+            <span>Same-week booking</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>Instant Estimate</h2>
+          <p>Use the booking form below to calculate a starting price before submitting your request.</p>
+          <div class="estimate-box">
+            <span>Typical 2-bedroom local move</span>
+            <strong>$520 - $950</strong>
+          </div>
+          <ul>
+            <li>2-4 trained movers</li>
+            <li>Furniture protection</li>
+            <li>Loading, unloading, and placement</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <p class="eyebrow">What we do</p>
+        <h2>Moving services built for busy families, students, renters, and small businesses.</h2>
+        <div class="cards four">
+          <article class="card"><h3>Local Moving</h3><p>Apartment, townhouse, condo, and small office moves across the DMV area.</p></article>
+          <article class="card"><h3>Labor Only</h3><p>Loading and unloading help when the customer already has a U-Haul, Penske, or storage container.</p></article>
+          <article class="card"><h3>Packing Help</h3><p>Boxing, wrapping, labeling, and move preparation so customers save time.</p></article>
+          <article class="card"><h3>Junk Removal</h3><p>Light junk removal add-on for unwanted items after a move or cleanout.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="pricing">
+      <div class="container pricing-grid">
+        <div>
+          <p class="eyebrow">Simple starting rates</p>
+          <h2>No hidden surprises. Quote first, confirm before work starts.</h2>
+          <p>Final price depends on distance, home size, stairs, heavy items, and number of movers.</p>
+        </div>
+        <div class="price-list">
+          <div><span>Labor-only moving</span><strong>From $55/mover/hr</strong></div>
+          <div><span>Local moving</span><strong>From $70/mover/hr</strong></div>
+          <div><span>Packing support</span><strong>From $50/mover/hr</strong></div>
+          <div><span>Minimum booking</span><strong>2 hours</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="booking">
+      <div class="container booking-grid">
+        <div>
+          <p class="eyebrow">Book online</p>
+          <h2>Request your move in under 2 minutes.</h2>
+          <p>Fill this form and the backend API saves the booking request in DynamoDB. You can later connect Stripe deposit payments and email/SMS notifications.</p>
+          <div class="api-warning" id="apiWarning">Backend API not configured yet. Update API_BASE_URL inside frontend/app.js after deploying the backend.</div>
+        </div>
+
+        <form class="booking-form" id="bookingForm">
+          <div class="form-row">
+            <label>Full name<input name="fullName" required placeholder="Betrand Mbah" /></label>
+            <label>Phone<input name="phone" required placeholder="240-555-0199" /></label>
+          </div>
+          <label>Email<input name="email" type="email" required placeholder="you@example.com" /></label>
+          <div class="form-row">
+            <label>Service date<input name="serviceDate" type="date" required /></label>
+            <label>Preferred time<input name="preferredTime" type="time" /></label>
+          </div>
+          <label>Service type
+            <select name="serviceType" id="serviceType" required>
+              <option value="localMove">Local move</option>
+              <option value="laborOnly">Labor only loading/unloading</option>
+              <option value="packing">Packing help</option>
+              <option value="junkRemoval">Junk removal</option>
+            </select>
+          </label>
+          <div class="form-row">
+            <label>Movers<select name="movers" id="movers"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+            <label>Estimated hours<input name="hours" id="hours" type="number" min="2" max="12" value="3" /></label>
+          </div>
+          <div class="form-row">
+            <label>Miles<input name="distanceMiles" id="distanceMiles" type="number" min="0" max="300" value="15" /></label>
+            <label>Flights of stairs<input name="stairs" id="stairs" type="number" min="0" max="10" value="0" /></label>
+          </div>
+          <label>Heavy items<input name="heavyItems" id="heavyItems" type="number" min="0" max="20" value="0" placeholder="Piano, safe, large couch, etc." /></label>
+          <label>Pickup address<input name="pickupAddress" required placeholder="7100 Example St, Hyattsville, MD" /></label>
+          <label>Dropoff address<input name="dropoffAddress" required placeholder="Washington, DC" /></label>
+          <label>Home size<input name="homeSize" placeholder="1 bedroom, 2 bedroom, office, storage unit" /></label>
+          <label>Notes<textarea name="notes" rows="4" placeholder="Elevator details, parking, gate code, special items..."></textarea></label>
+          <div class="quote-card">
+            <span>Estimated total</span>
+            <strong id="quoteTotal">$0</strong>
+            <small id="depositDue">Estimated 20% deposit: $0</small>
+          </div>
+          <button class="btn primary full" type="submit">Submit Booking Request</button>
+          <p class="form-message" id="formMessage"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section soft" id="contact">
+      <div class="container contact-grid">
+        <div><h2>Need help today?</h2><p>Call or text for apartment moves, storage unit moves, and loading help.</p></div>
+        <div class="contact-card"><strong>240-555-0199</strong><span>booking@moveprodmv.com</span><span>Hyattsville, MD</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> MovePro DMV Movers. All rights reserved.</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

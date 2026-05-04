@@ -1,0 +1,24 @@
+{
+  "name": "movepro-booking-api",
+  "version": "1.0.0",
+  "description": "Moving business booking API for local moving, packing, and labor-only services.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "latest",
+    "@aws-sdk/lib-dynamodb": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "helmet": "latest",
+    "morgan": "latest",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  }
+}
